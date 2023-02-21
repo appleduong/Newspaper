@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOS</title>
+
+    <style>
+      .main {
+        background: beige;
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 50px 330px 330px 330px 330px 50px;
+        grid-template-rows: auto 50px 400px 400px 400px;
+      }
+
+      .menu {
+        display: flex;
+        flex-wrap: nowrap;
+        background: lightblue;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 2;
+        grid-column-end: 6;
+      }
+
+      .logo {
+        margin-top: 30px;
+      }
+      #nieuws-expand {
+        display: inline-block;
+        color: gray;
+        text-decoration: none;
+      }
+
+      #sports-expand {
+        display: inline-block;
+        color: gray;
+        text-decoration: none;
+      }
+
+      .content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropbtn {
+        display: inline-block;
+        color: gray;
+        text-align: center;
+        padding: 10px 16px;
+        text-decoration: none;
+      }
+
+      .nieuws:hover .content {
+        display: block;
+      }
+
+      .sports:hover .content {
+        display: block;
+      }
+
+      .arrow-down {
+        border: solid gray;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 4px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+
+      .nieuws {
+        background: transparent;
+        color: red;
+        height: 40px;
+        width: 90px;
+        padding: 0 20px 0 20px;
+        margin-top: 30px;
+      }
+      .sports {
+        background: transparent;
+        color: gray;
+        height: 40px;
+        width: 90px;
+        padding: 0 20px 0 20px;
+        margin-top: 30px;
+      }
+      .live {
+        background: transparent;
+        color: gray;
+        height: 40px;
+        width: 90px;
+        padding: 0 20px 0 20px;
+        margin-top: 30px;
+      }
+      .program {
+        background: transparent;
+        color: gray;
+        height: 40px;
+        width: 90px;
+        padding: 0 20px 0 0;
+        margin-top: 30px;
+      }
+
+      .space {
+        background: transparent;
+        margin-left: 40px;
+        height: 40px;
+        width: 400px;
+      }
+
+      .search {
+        background: black;
+        width: 60px;
+        height: 40px;
+        margin-top: 40px;
+      }
+
+      .weather {
+        background: red;
+        width: 60px;
+        height: 40px;
+        margin-top: 40px;
+      }
+
+      .logo2 {
+        background: red;
+        width: 60px;
+        height: 40px;
+        margin-top: 40px;
+      }
+
+      .hr {
+        background: yellow;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 6;
+        border-top: 2px solid lightgray;
+        margin-top: 20px;
+
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      .russia {
+        background: red;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 2;
+        grid-column-end: 4;
+        background: red;
+        position: relative;
+        margin-top: 50px;
+      }
+
+      .text1 {
+        position: absolute;
+        top: 200px;
+      }
+
+      .euro {
+        background: yellow;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 4;
+        grid-column-end: 6;
+        margin-top: 50px;
+      }
+
+      .text2 {
+        position: absolute;
+        top: 200px;
+      }
+
+      .text3,
+      .text4,
+      .text5,
+      .text6,
+      .text7,
+      .text8 {
+        text-align: left;
+        color: black;
+        font-size: 17px;
+        font-family: Helvetica;
+      }
+
+      .text3-1,
+      .text4-1,
+      .text5-1,
+      .text6-1,
+      .text7-1,
+      .text8-1 {
+        font-size: 17px;
+        text-align: left;
+        color: gray;
+      }
+
+      .griek {
+        background: yellow;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+
+      .qatar {
+        background: lemonchiffon;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        grid-column-start: 3;
+        grid-column-end: 4;
+      }
+
+      .rutte {
+        background: rebeccapurple;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        grid-column-start: 4;
+        grid-column-end: 5;
+      }
+
+      .groning {
+        background: yellowgreen;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+
+      .turkse {
+        background: yellow;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        grid-column-start: 3;
+        grid-column-end: 4;
+      }
+
+      .hond {
+        background: lavender;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        grid-column-start: 4;
+        grid-column-end: 5;
+      }
+
+      .column1 {
+        background: lightpink;
+        width: 50px;
+        height: 100%;
+        grid-row-start: 1;
+        grid-row-end: 6;
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+
+      .column2 {
+        background: lightcyan;
+        grid-row-start: 4;
+        grid-row-end: 6;
+        grid-column-start: 5;
+        grid-column-end: 6;
+        background: white;
+        width: 300px;
+        height: 700px;
+        border: 1px solid lightgray;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      .line1,
+      .line2,
+      .line3,
+      .line4,
+      .line5 {
+        font-size: 17px;
+        font-family: Helvetica;
+      }
+
+      .table {
+        border-bottom: 1px solid lightgray;
+
+        padding: 10px;
+        margin: 10px;
+      }
+      .line5 {
+        border: none;
+      }
+
+      .column3 {
+        background: lightgrey;
+        width: 50px;
+        height: 100%;
+        grid-row-start: 1;
+        grid-row-end: 6;
+        grid-column-start: 6;
+        grid-column-end: 7;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: goldenrod;
+        width: 100%;
+      }
+      li a {
+        display: inline-block;
+        color: gray;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        font-family: Helvetica;
+        margin-top: 30px;
+      }
+
+      li a:hover {
+        color: red;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a,
+      .dropbtn {
+        display: inline-block;
+        color: gray;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover,
+      .dropdown:hover .dropbtn {
+        color: red;
+      }
+
+      li.dropdown {
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: gray;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .arrow-down {
+        border: solid gray;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 4px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="menu">
+        <div class="logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b9/NOS_logo.svg"
+            width="100px"
+            height="60px"
+          />
+        </div>
+
+        <ul>
+          <li class="dropdown">
+            <a class="dropdownbtn" href="https://nos.nl/"
+              >Nieuws<i class="arrow-down"></i
+            ></a>
+            <div class="dropdown-content">
+              <a href="#">Voorpagina</a>
+              <a href="#">Laaste nieuws</a>
+              <a href="#">Video's</a>
+              <a href="#">Buitenland</a>
+              <a href="#">Binnenland</a>
+              <a href="#">Regionaal nieuws</a>
+            </div>
+          </li>
+
+          <li><a href="https://nos.nl/sport">Sports</a></li>
+          <li><a href="#">Live</a></li>
+          <li><a href="https://nos.nl/programmas">Programma's</a></li>
+          <li>
+            <img style="float: right" class="weather"
+            src="http://cdn.onlinewebfonts.com/svg/img_315219.png" alt=""
+            width="40px height="10px" />
+          </li>
+          <li>
+            <img class="search"
+            src="https://static.vecteezy.com/system/resources/thumbnails/002/272/237/small/search-icon-simple-free-illustration-free-vector.jpg"
+            alt="search" width="30px height="10px" />
+          </li>
+          <li>
+            <img class="logo2"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/NPO_Start_logo.svg/1280px-NPO_Start_logo.svg.png"
+            alt="logo2" width="40px height="10px" />
+          </li>
+        </ul>
+
+        <!--<div id="nieuws-expand" class="nieuws">
+          <p style="color: red; font-size: 25px">
+            Nieuws<i class="arrow-down"></i>
+          </p>
+          <div class="content">
+            <a href="#" class="dropbtn">Voorpagina</a>
+            <p>Laaste nieuws</p>
+            <p>Video's</p>
+            <p>Binnenland</p>
+            <p>Buitenland</p>
+            <p>Regionaal Nieuws</p>
+          </div>
+        </div>
+
+        <div id="sports-expand" class="sports">
+          <p style="color: gray; font-size: 25px">
+            Sports<i class="arrow-down"></i>
+          </p>
+          <div class="content">
+            <a href="#" class="dropbtn">Voetbal</a>
+            <p>Formule1</p>
+            <p>Wielrennen</p>
+            <p>Schatsen</p>
+            <p>Tennis</p>
+          </div>
+        </div>
+
+        <div class="live">
+          <p style="color: gray; font-size: 25px">Live</p>
+        </div>
+        <div class="program">
+          <p style="color: gray; font-size: 25px">Programma's</p>
+        </div>
+        <div class="space"></div>
+
+        <div class="weather">
+          <img src="http://cdn.onlinewebfonts.com/svg/img_315219.png" alt=""
+          width="40px height="10px" />
+        </div>
+
+        <div class="search">
+          <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/002/272/237/small/search-icon-simple-free-illustration-free-vector.jpg"
+          alt="search" width="40px height="10px" />
+        </div>
+        <div class="logo2">
+          <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/NPO_Start_logo.svg/1280px-NPO_Start_logo.svg.png"
+          alt="logo2" width="40px height="10px" />
+        </div>
+    </div>
+      <div class="menu">
+        <div class="logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b9/NOS_logo.svg"
+            width="100px"
+            height="60px"
+          />
+        </div>
+        <div id="nieuws-expand" class="nieuws">
+          <p style="color: red; font-size: 25px">
+            Nieuws<i class="arrow-down"></i>
+          </p>
+          <div class="content">
+            <a href="#" class="dropbtn">Voorpagina</a>
+            <p>Laaste nieuws</p>
+            <p>Video's</p>
+            <p>Binnenland</p>
+            <p>Buitenland</p>
+            <p>Regionaal Nieuws</p>
+          </div>
+        </div>
+
+        <div id="sports-expand" class="sports">
+          <p style="color: gray; font-size: 25px">
+            Sports<i class="arrow-down"></i>
+          </p>
+          <div class="content">
+            <a href="#" class="dropbtn">Voetbal</a>
+            <p>Formule1</p>
+            <p>Wielrennen</p>
+            <p>Schatsen</p>
+            <p>Tennis</p>
+          </div>
+        </div>
+
+        <div class="live">
+          <p style="color: gray; font-size: 25px">Live</p>
+        </div>
+        <div class="program">
+          <p style="color: gray; font-size: 25px">Programma's</p>
+        </div>
+        <div class="space"></div>
+
+        <div class="weather">
+          <img src="http://cdn.onlinewebfonts.com/svg/img_315219.png" alt=""
+          width="40px height="10px" />
+        </div>
+
+        <div class="search">
+          <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/002/272/237/small/search-icon-simple-free-illustration-free-vector.jpg"
+          alt="search" width="40px height="10px" />
+        </div>
+        <div class="logo2">
+          <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/NPO_Start_logo.svg/1280px-NPO_Start_logo.svg.png"
+          alt="logo2" width="40px height="10px" />
+        </div>-->
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="russia">
+        <img
+          src="https://cdn.nos.nl/image/2023/02/17/944167/1024x576a.jpg"
+          alt=""
+          width="100%"
+          height="auto"
+        />
+        <div class="text1">
+          <p
+            style="
+              color: white;
+              font-weight: bold;
+              font-size: 25px;
+              font-family: Helvetica;
+            "
+          >
+            Rusland blijft het proberen in de Donbas,<br />ondanks grote
+            verliezen
+          </p>
+        </div>
+      </div>
+
+      <div class="euro">
+        <img
+          src="https://cdn.nos.nl/image/2023/02/17/944112/1024x576a.jpg"
+          alt=""
+          width="100%"
+          height="auto"
+        />
+        <div class="text2">
+          <p
+            style="
+              color: white;
+              font-weight: bold;
+              font-size: 25px;
+              font-family: Helvetica;
+            "
+          >
+            Bulgarije stelt invoering euro uit
+          </p>
+        </div>
+      </div>
+
+      <div class="griek">
+        <img
+          src="https://cdn.nos.nl/image/2023/02/17/944180/1024x576a.jpg"
+          alt=""
+          width="270px"
+          height="200px"
+        />
+        <div class="text3">
+          <b
+            >Griekspoor in halve finale Ahoy net niet opgewassen tegen
+            doortastende Sinner</b
+          >
+        </div>
+
+        <div class="text3-1">
+          <p>
+            Tallon Griekspoor had de eerste Nederlandse finalist bij het ABN
+            Amro Open sinds 2003 kunnen worden, maar de sterk spelende Jannik
+            Sinner is een maatje te groot.
+          </p>
+        </div>
+      </div>
+
+      <div class="qatar">
+        <img
+          src="https://cdn.nos.nl/image/2023/02/18/944519/1024x576a.jpg"
+          alt=""
+          width="270px"
+          height="200px"
+        />
+        <div class="text4">
+          <b
+            >Geen zorgen over slagkracht NAVO, ondanks leveringen aan
+            Oekraïne</b
+          >
+          <div class="text4-1">
+            <p>
+              De hoogste militair van de NAVO, Rob Bauer, maakt zich geen zorgen
+              nu veel NAVO-landen hun munitie en een deel van de wapensystemen
+              weggeven aan Oekraïne.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rutte">
+        <img
+          src="https://cdn.nos.nl/image/2023/02/18/944537/1024x576a.jpg"
+          alt=""
+          width="270px"
+          height="200px"
+        />
+        <div class="text5">
+          <b
+            >Feyenoord steviger aan kop, door late overwinning op directe
+            achtervolger AZ</b
+          >
+          <div class="text5-1">
+            <p>
+              Marcus Pedersen zet De Kuip in vuur en vlam, door in de laatste
+              minuut met een van richting veranderd schot de winnende goal te
+              maken: 2-1.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="groning">
+        <img
+          src="https://cdn.nos.nl/image/2023/02/19/944603/1024x576a.jpg"
+          alt=""
+          width="270px"
+          height="200px"
+        />
+        <div class="text6">
+          <p>
+            <b
+              >De aardbevingen zijn de grondslag van veel Groningse
+              literatuur</b
+            >
+          </p>
+          <div class="text6-1">
+            <p>
+              Kunstenaars halen inspiratie uit de aardbevingssituatie voor
+              boeken, films en toneelstukken.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="turkse">
+        <img
+          src="https://cdn.nos.nl/image/2023/02/19/944803/1024x576a.jpg"
+          alt=""
+          width="270px"
+          height="200px"
+        />
+        <div class="text7">
+          <p>
+            <b
+              >Reddingswerk na aardbeving in meeste Turkse provincies
+              stopgezet</b
+            >
+          </p>
+          <div class="text7-1">
+            <p>
+              Alleen in de zwaar getroffen regio's Kahramanmaras en Hatay wordt
+              nog gezocht naar mensen, in de andere negen provincies wordt niet
+              meer gezocht.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hond">
+        <img
+          src="https://cdn.nos.nl/image/2023/02/19/944829/1024x576a.jpg"
+          alt=""
+          width="300px"
+          height="200px"
+        />
+        <div class="text8">
+          <p>
+            <b
+              >Bezoeker beurs stoot kunstwerk Jeff Koons om, schade bijna 40.000
+              euro</b
+            >
+          </p>
+          <div class="text8-1">
+            <p>De felblauwe hond spatte in meer dan honderd scherven uiteen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column1"></div>
+
+      <div class="column2">
+        <div class="table line1">
+          Laatste nieuws<br /><br />
+          10:02<br /><br />
+          'Gezellig' carnaval in Brabantse steden ondanks enkele aanhoudingen
+        </div>
+        <div class="table line2">
+          12:05<br /><br />
+          Zo bouw je een land op na een verwoestende aardbeving
+        </div>
+        <div class="table line3">
+          11:31•LIVEBLOG<br /><br />
+          Heerenveen op gelijke hoogte in Leeuwarden • Later: Utrecht-PSV en
+          Ajax-Sparta
+        </div>
+        <div class="table line4">
+          11:02<br /><br />
+          Nageeye voldoet aan trainingsdoel in halve marathon Barcelona, nu
+          focus op Rotterdam
+        </div>
+        <div class="table line5">
+          10:41<br /><br />
+          Ramselaar na 'eenzame' maanden terug bij Utrecht: 'Af en toe pijntjes
+          en stijfheid'
+        </div>
+      </div>
+
+      <div class="column3"></div>
+    </div>
+  </body>
+</html>
