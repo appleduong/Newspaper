@@ -8,27 +8,35 @@
 
     <style>
       .main {
-        background: beige;
+        background: white;
         width: 100vw;
         height: 100vh;
         display: grid;
         grid-template-columns: 50px 330px 330px 330px 330px 50px;
-        grid-template-rows: auto 50px 400px 400px 400px;
+        grid-template-rows: 115px 50px 400px 400px 400px 300px;
+        justify-content: space-evenly;
+        box-sizing: border-box;
       }
 
       .menu {
         display: flex;
         flex-wrap: nowrap;
-        background: lightblue;
+        background: transparent;
         grid-row-start: 1;
         grid-row-end: 2;
         grid-column-start: 2;
         grid-column-end: 6;
       }
 
-      .logo {
-        margin-top: 30px;
+      img {
+        border-radius: 2%;
       }
+
+      .logo {
+        margin-top: 70px;
+        margin-right: 30px;
+      }
+
       #nieuws-expand {
         display: inline-block;
         color: gray;
@@ -108,151 +116,156 @@
         margin-top: 30px;
       }
 
-      .space {
-        background: transparent;
-        margin-left: 40px;
-        height: 40px;
-        width: 400px;
-      }
-
       .search {
-        background: black;
-        width: 60px;
-        height: 40px;
-        margin-top: 40px;
+        background: transparent;
+        width: 35px;
+        height: auto;
+        margin-top: 25px;
+        padding: 10px;
       }
 
       .weather {
-        background: red;
-        width: 60px;
-        height: 40px;
-        margin-top: 40px;
+        background: transparent;
+        width: 35px;
+        height: auto;
+        margin-top: 25px;
+        padding: 10px;
       }
 
       .logo2 {
-        background: red;
-        width: 60px;
-        height: 40px;
-        margin-top: 40px;
+        background: transparent;
+        width: 35px;
+        height: auto;
+        margin-top: 25px;
+        margin-right: 50px;
+        padding: 10px;
       }
 
-      .hr {
-        background: yellow;
-        grid-row-start: 2;
+      .hr1 {
+        background: transparent;
+        grid-row-start: 3;
         grid-row-end: 3;
         grid-column-start: 2;
         grid-column-end: 6;
-        border-top: 2px solid lightgray;
-        margin-top: 20px;
 
+        margin-top: none;
+      }
+
+      .hr {
+        border-top: 1px solid lightgray;
         width: 100%;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin-bottom: 10px;
       }
 
       .russia {
-        background: red;
+        background: transparent;
         grid-row-start: 3;
         grid-row-end: 4;
         grid-column-start: 2;
         grid-column-end: 4;
-        background: red;
         position: relative;
-        margin-top: 50px;
+        padding: 50px 50px 50px 0;
       }
 
       .text1 {
         position: absolute;
-        top: 200px;
+        top: 20px;
       }
 
       .euro {
-        background: yellow;
+        background: transparent;
         grid-row-start: 3;
         grid-row-end: 4;
         grid-column-start: 4;
         grid-column-end: 6;
-        margin-top: 50px;
+        padding: 50px 0 50px 50px;
+      }
+
+      .euro1 {
+        margin-left: 60px;
       }
 
       .text2 {
         position: absolute;
-        top: 200px;
+        top: 20px;
+        left: 60px;
       }
 
-      .text3,
-      .text4,
-      .text5,
-      .text6,
-      .text7,
-      .text8 {
+      .text3 {
         text-align: left;
         color: black;
         font-size: 17px;
         font-family: Helvetica;
       }
 
-      .text3-1,
-      .text4-1,
-      .text5-1,
-      .text6-1,
-      .text7-1,
-      .text8-1 {
+      .text4 {
         font-size: 17px;
         text-align: left;
         color: gray;
       }
 
       .griek {
-        background: yellow;
+        background: transparent;
         grid-row-start: 4;
         grid-row-end: 5;
         grid-column-start: 2;
         grid-column-end: 3;
+        padding: 100px 15px 15px 0;
       }
 
       .qatar {
-        background: lemonchiffon;
+        background: transparent;
         grid-row-start: 4;
         grid-row-end: 5;
         grid-column-start: 3;
         grid-column-end: 4;
+        margin-top: 30px;
+        margin-left: 10px;
+        padding-top: 70px;
       }
 
       .rutte {
-        background: rebeccapurple;
+        background: transparent;
         grid-row-start: 4;
         grid-row-end: 5;
         grid-column-start: 4;
         grid-column-end: 5;
+        padding: 100px 0 30px 0;
+        margin-left: 20px;
       }
 
       .groning {
-        background: yellowgreen;
+        background: transparent;
         grid-row-start: 5;
         grid-row-end: 6;
         grid-column-start: 2;
         grid-column-end: 3;
+        padding: 100px 15px 15px 0;
       }
 
       .turkse {
-        background: yellow;
+        background: transparent;
         grid-row-start: 5;
         grid-row-end: 6;
         grid-column-start: 3;
         grid-column-end: 4;
+        padding: 100px 0 15px 15px;
       }
 
       .hond {
-        background: lavender;
+        background: transparent;
         grid-row-start: 5;
         grid-row-end: 6;
         grid-column-start: 4;
         grid-column-end: 5;
+        padding: 100px 0 15px 0;
+        margin-left: 20px;
       }
 
       .column1 {
-        background: lightpink;
-        width: 50px;
+        background: transparent;
+        width: 100px;
         height: 100%;
         grid-row-start: 1;
         grid-row-end: 6;
@@ -261,7 +274,7 @@
       }
 
       .column2 {
-        background: lightcyan;
+        background: transparent;
         grid-row-start: 4;
         grid-row-end: 6;
         grid-column-start: 5;
@@ -271,43 +284,44 @@
         height: 700px;
         border: 1px solid lightgray;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin-left: 25px;
+        margin-top: 100px;
       }
 
-      .line1,
-      .line2,
-      .line3,
-      .line4,
+      .line,
       .line5 {
         font-size: 17px;
         font-family: Helvetica;
       }
 
-      .table {
-        border-bottom: 1px solid lightgray;
-
-        padding: 10px;
-        margin: 10px;
-      }
       .line5 {
         border: none;
       }
 
+      .table {
+        border-bottom: 1px solid lightgray;
+
+        padding-top: 10px;
+
+        margin: 10px 10px 0 10px;
+      }
+
       .column3 {
-        background: lightgrey;
-        width: 50px;
+        background: transparent;
+        width: 100px;
         height: 100%;
         grid-row-start: 1;
-        grid-row-end: 6;
+        grid-row-end: 7;
         grid-column-start: 6;
         grid-column-end: 7;
       }
 
       ul {
         list-style-type: none;
-        margin: 0;
+        margin-top: 30px;
         padding: 0;
         overflow: hidden;
-        background-color: goldenrod;
+        background-color: transparent;
         width: 100%;
       }
       li a {
@@ -316,7 +330,7 @@
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        font-size: 25px;
+        font-size: 20px;
         font-family: Helvetica;
         margin-top: 30px;
       }
@@ -354,6 +368,7 @@
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
+        border-radius: 2%;
       }
 
       .dropdown-content a {
@@ -376,27 +391,131 @@
         border: solid gray;
         border-width: 0 3px 3px 0;
         display: inline-block;
-        padding: 4px;
+        padding: 3px;
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
       }
+
+      .nav-pic {
+        background: transparent;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .footer {
+        background: white;
+        grid-column-start: 2;
+        grid-column-end: 6;
+        grid-row-start: 6;
+        grid-row-end: 7;
+        height: 100px;
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: 100px;
+      }
+
+      .part1 {
+        background: transparent;
+        width: 50vw;
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      .logoo {
+        margin-top: 10px;
+      }
+
+      .text5 {
+        margin-left: 20px;
+        margin-top: 20px;
+        color: gray;
+        font-size: 20px;
+      }
+
+      .part2 {
+        background: transparent;
+        width: 50vw;
+        height: 50px;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .tweet,
+      .fb,
+      .ig,
+      .yt {
+        margin: 0px 10px 10px 10px;
+      }
+
+      .yt {
+        margin-right: 30px;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .menu {
+          position: fixed;
+        }
+
+        .logo2,
+        .weather,
+        .search {
+          display: none;
+        }
+
+        .nav-container {background: red;
+          display: none;
+        }
+      }
+
+       @media only screen and (max-width: 900px) {
+        .menu {
+          position: fixed;
+        }
+
+        .logo2,
+        .weather,
+        .search {
+          display: none;
+        }
+
+        .nav-container {background: orange;
+          display: flex;
+          flex-wrap: nowrap;
+          width: 600px;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .menu {
+          position: fixed;
+        }
+
+        .logo2,
+        .weather,
+        .search {
+          display: none;
+        }
+
+        .nav-container {background: red;
+          display: none;
+        }
+      }
+
+     
+
     </style>
   </head>
   <body>
     <div class="main">
       <div class="menu">
         <div class="logo">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/b/b9/NOS_logo.svg"
-            width="100px"
-            height="60px"
-          />
+          <img src="NOS_logo copy.png" width="100px" height="auto" />
         </div>
 
-        <ul>
+        <ul class="nav-container">
           <li class="dropdown">
             <a class="dropdownbtn" href="https://nos.nl/"
-              >Nieuws<i class="arrow-down"></i
+              >Nieuws <i class="arrow-down"></i
             ></a>
             <div class="dropdown-content">
               <a href="#">Voorpagina</a>
@@ -411,20 +530,22 @@
           <li><a href="https://nos.nl/sport">Sports</a></li>
           <li><a href="#">Live</a></li>
           <li><a href="https://nos.nl/programmas">Programma's</a></li>
+        </ul>
+        <ul class="nav-pic">
           <li>
-            <img style="float: right" class="weather"
+            <img class="weather"
             src="http://cdn.onlinewebfonts.com/svg/img_315219.png" alt=""
-            width="40px height="10px" />
+            width="5px height="auto" />
           </li>
           <li>
             <img class="search"
             src="https://static.vecteezy.com/system/resources/thumbnails/002/272/237/small/search-icon-simple-free-illustration-free-vector.jpg"
-            alt="search" width="30px height="10px" />
+            alt="search" width="5px height="auto" />
           </li>
           <li>
             <img class="logo2"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/NPO_Start_logo.svg/1280px-NPO_Start_logo.svg.png"
-            alt="logo2" width="40px height="10px" />
+            alt="logo2" width="5px height="auto" />
           </li>
         </ul>
 
@@ -539,15 +660,12 @@
         </div>-->
       </div>
 
-      <div class="hr"></div>
+      <div class="hr1">
+        <div class="hr"></div>
+      </div>
 
       <div class="russia">
-        <img
-          src="https://cdn.nos.nl/image/2023/02/17/944167/1024x576a.jpg"
-          alt=""
-          width="100%"
-          height="auto"
-        />
+        <img src="1024x576a.jpeg" alt="war-picture" width="100%" height="auto" />
         <div class="text1">
           <p
             style="
@@ -564,12 +682,7 @@
       </div>
 
       <div class="euro">
-        <img
-          src="https://cdn.nos.nl/image/2023/02/17/944112/1024x576a.jpg"
-          alt=""
-          width="100%"
-          height="auto"
-        />
+        <img class="euro1" src="euro.jpeg" alt="" width="100%" height="auto" />
         <div class="text2">
           <p
             style="
@@ -588,8 +701,8 @@
         <img
           src="https://cdn.nos.nl/image/2023/02/17/944180/1024x576a.jpg"
           alt=""
-          width="270px"
-          height="200px"
+          width="100%"
+          height="auto"
         />
         <div class="text3">
           <b
@@ -598,7 +711,7 @@
           >
         </div>
 
-        <div class="text3-1">
+        <div class="text4">
           <p>
             Tallon Griekspoor had de eerste Nederlandse finalist bij het ABN
             Amro Open sinds 2003 kunnen worden, maar de sterk spelende Jannik
@@ -611,15 +724,15 @@
         <img
           src="https://cdn.nos.nl/image/2023/02/18/944519/1024x576a.jpg"
           alt=""
-          width="270px"
-          height="200px"
+          width="100%"
+          height="auto"
         />
-        <div class="text4">
+        <div class="text3">
           <b
             >Geen zorgen over slagkracht NAVO, ondanks leveringen aan
             Oekraïne</b
           >
-          <div class="text4-1">
+          <div class="text4">
             <p>
               De hoogste militair van de NAVO, Rob Bauer, maakt zich geen zorgen
               nu veel NAVO-landen hun munitie en een deel van de wapensystemen
@@ -633,15 +746,15 @@
         <img
           src="https://cdn.nos.nl/image/2023/02/18/944537/1024x576a.jpg"
           alt=""
-          width="270px"
-          height="200px"
+          width="100%"
+          height="auto"
         />
-        <div class="text5">
+        <div class="text3">
           <b
             >Feyenoord steviger aan kop, door late overwinning op directe
             achtervolger AZ</b
           >
-          <div class="text5-1">
+          <div class="text4">
             <p>
               Marcus Pedersen zet De Kuip in vuur en vlam, door in de laatste
               minuut met een van richting veranderd schot de winnende goal te
@@ -655,17 +768,17 @@
         <img
           src="https://cdn.nos.nl/image/2023/02/19/944603/1024x576a.jpg"
           alt=""
-          width="270px"
-          height="200px"
+          width="100%"
+          height="auto"
         />
-        <div class="text6">
+        <div class="text3">
           <p>
             <b
               >De aardbevingen zijn de grondslag van veel Groningse
               literatuur</b
             >
           </p>
-          <div class="text6-1">
+          <div class="text4">
             <p>
               Kunstenaars halen inspiratie uit de aardbevingssituatie voor
               boeken, films en toneelstukken.
@@ -678,17 +791,17 @@
         <img
           src="https://cdn.nos.nl/image/2023/02/19/944803/1024x576a.jpg"
           alt=""
-          width="270px"
-          height="200px"
+          width="100%"
+          height="auto"
         />
-        <div class="text7">
+        <div class="text3">
           <p>
             <b
               >Reddingswerk na aardbeving in meeste Turkse provincies
               stopgezet</b
             >
           </p>
-          <div class="text7-1">
+          <div class="text4">
             <p>
               Alleen in de zwaar getroffen regio's Kahramanmaras en Hatay wordt
               nog gezocht naar mensen, in de andere negen provincies wordt niet
@@ -700,20 +813,24 @@
 
       <div class="hond">
         <img
-          src="https://cdn.nos.nl/image/2023/02/19/944829/1024x576a.jpg"
+          src="https://cdn.nos.nl/image/2023/02/21/945423/1024x576a.jpg"
           alt=""
-          width="300px"
-          height="200px"
+          width="100%"
+          height="auto"
         />
-        <div class="text8">
+        <div class="text3">
           <p>
             <b
-              >Bezoeker beurs stoot kunstwerk Jeff Koons om, schade bijna 40.000
-              euro</b
+              >Wat betekent het dat Poetin kernwapenverdrag opschort? &apos;Had
+              erger kunnen zijn&apos;</b
             >
           </p>
-          <div class="text8-1">
-            <p>De felblauwe hond spatte in meer dan honderd scherven uiteen.</p>
+          <div class="text4">
+            <p>
+              Het wordt moeilijker te controleren hoeveel kernwapens Rusland
+              heeft. "Dat geeft Poetin meer ruimte om te manoeuvreren", zegt
+              kolonel Han Bouwmeester.
+            </p>
           </div>
         </div>
       </div>
@@ -721,21 +838,21 @@
       <div class="column1"></div>
 
       <div class="column2">
-        <div class="table line1">
-          Laatste nieuws<br /><br />
+        <div class="table line">
+          Laaste nieuws <br /><br /><br />
           10:02<br /><br />
           'Gezellig' carnaval in Brabantse steden ondanks enkele aanhoudingen
         </div>
-        <div class="table line2">
+        <div class="table line">
           12:05<br /><br />
           Zo bouw je een land op na een verwoestende aardbeving
         </div>
-        <div class="table line3">
+        <div class="table line">
           11:31•LIVEBLOG<br /><br />
           Heerenveen op gelijke hoogte in Leeuwarden • Later: Utrecht-PSV en
           Ajax-Sparta
         </div>
-        <div class="table line4">
+        <div class="table line">
           11:02<br /><br />
           Nageeye voldoet aan trainingsdoel in halve marathon Barcelona, nu
           focus op Rotterdam
@@ -748,6 +865,24 @@
       </div>
 
       <div class="column3"></div>
+
+      <div class="footer">
+        <div class="part1">
+          <div class="logoo">
+            <img src="NOS_logo copy.png" width="100px" height="auto" />
+          </div>
+          <p class="text5" style="font-family: helvetica">
+            © NOS
+            2023&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCookie-instellingen
+          </p>
+        </div>
+        <div class="part2">
+          <img class="tweet" src="tweet.png" width="40px" height="auto" />
+          <img class="fb" src="fb.png" width="40px" height="auto" />
+          <img class="ig" src="ig.png" width="40px" height="auto" />
+          <img class="yt" src="yt.png" width="45px" height="auto" />
+        </div>
+      </div>
     </div>
   </body>
 </html>
